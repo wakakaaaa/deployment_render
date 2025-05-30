@@ -84,7 +84,7 @@ def get_data(db: Session = Depends(get_db)):
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
-
+# uvicorn app.main:app --host 0.0.0.0 --port 10000
 
 def test_fetch():
     db = next(get_db())  # 手动调用生成器，获取连接
