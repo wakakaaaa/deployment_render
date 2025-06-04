@@ -9,11 +9,11 @@ class Settings(BaseSettings):
     # REDSHIFT_HOST: str
     # REDSHIFT_PORT: int = 5439
     # REDSHIFT_DB: str
-    mysql_user: str
-    mysql_pass: str
-    mysql_host: str
-    mysql_port: int
-    mysql_db: str
+    MYSQL_USER: str
+    MYSQL_PASS: str
+    MYSQL_HOST: str
+    MYSQL_PORT: int
+    MYSQL_DB: str
 
     class Config:
         env_file = ".env"

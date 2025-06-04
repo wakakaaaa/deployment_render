@@ -12,8 +12,8 @@ pymysql.install_as_MySQLdb()
 # engine = create_engine(DATABASE_URL)
 
 mysql_url = (
-    f"mysql+pymysql://{settings.mysql_user}:{settings.mysql_pass}@{settings.mysql_host}:{settings.mysql_port}/"
-    f"{settings.mysql_db}"
+    f"mysql+pymysql://{settings.MYSQL_USER}:{settings.MYSQL_PASS}@{settings.MYSQL_HOST}:{settings.MYSQL_PORT}/"
+    f"{settings.MYSQL_DB}"
 )
 # mysql_url = (
 #     f"mysql://root:TkRZtpXAQfVrnVvGZASsLQAmxdGKGoZC@centerbeam.proxy.rlwy.net:41908/railway"
