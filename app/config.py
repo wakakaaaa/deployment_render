@@ -2,7 +2,7 @@ from pydantic_settings import BaseSettings,SettingsConfigDict
 from dotenv import load_dotenv
 import os
 
-# load_dotenv()
+load_dotenv()
 class Settings(BaseSettings):
     # REDSHIFT_USER: str
     # REDSHIFT_PASS: str
@@ -21,5 +21,6 @@ class Settings(BaseSettings):
         extra = "ignore"
 
 def get_settings() -> Settings:
+    print("❗️Settings class loaded — if you see this printed before startup, it's too early")
+    print("✅ MYSQL_USER from os:", os.getenv("MYSQL_USER"))
     return Settings()
-print("❗️Settings class loaded — if you see this printed before startup, it's too early")
