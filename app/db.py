@@ -4,6 +4,7 @@ from app.config import get_settings
 import os
 import pymysql
 pymysql.install_as_MySQLdb()
+settings = get_settings()
 
 # DATABASE_URL = (
 #     f"redshift+redshift_connector://{settings.REDSHIFT_USER}:{settings.REDSHIFT_PASS}@"
@@ -12,8 +13,8 @@ pymysql.install_as_MySQLdb()
 # engine = create_engine(DATABASE_URL)
 
 mysql_url = (
-    f"mysql+pymysql://{get_settings.MYSQL_USER}:{get_settings.MYSQL_PASS}@{get_settings.MYSQL_HOST}:{get_settings.MYSQL_PORT}/"
-    f"{get_settings.MYSQL_DB}"
+    f"mysql+pymysql://{settings.MYSQL_USER}:{settings.MYSQL_PASS}@{settings.MYSQL_HOST}:{settings.MYSQL_PORT}/"
+    f"{settings.MYSQL_DB}"
 )
 # mysql_url = (
 #     f"mysql://root:TkRZtpXAQfVrnVvGZASsLQAmxdGKGoZC@centerbeam.proxy.rlwy.net:41908/railway"
