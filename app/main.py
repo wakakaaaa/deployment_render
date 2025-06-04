@@ -1,7 +1,5 @@
 import os
 from app.config import settings
-print("MYSQL_USER from env:", os.getenv("MYSQL_USER"))
-print("MYSQL_USER from settings:", settings.MYSQL_USER)  # 从 Pydantic
 from fastapi import FastAPI, Depends, HTTPException
 from sqlalchemy.orm import Session
 from app.db import get_db
@@ -105,6 +103,13 @@ def test_fetch():
     finally:
         db.close()
 
+def main():
+    print("✅ Environment variables loaded:")
+    print("MYSQL_USER:", settings.MYSQL_USER)
+    print("MYSQL_HOST:", settings.MYSQL_HOST)
+    print("MYSQL_PORT:", settings.MYSQL_PORT)
+    print("MYSQL_DB:", settings.MYSQL_DB)
 if __name__ == "__main__":
     # print("REDSHIFT_USER =", settings.REDSHIFT_USER)
-    test_fetch()
+    # test_fetch()
+    main()
