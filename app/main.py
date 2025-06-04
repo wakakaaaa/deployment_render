@@ -1,3 +1,5 @@
+import os
+print("MYSQL_USER from env:", os.getenv("MYSQL_USER"))
 from fastapi import FastAPI, Depends, HTTPException
 from sqlalchemy.orm import Session
 from app.db import get_db
