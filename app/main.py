@@ -8,7 +8,7 @@ from app.schemas import TableResponse, Row
 
 import pandas as pd
 import os
-print("🚀 Railway ENV PORT:", os.getenv("PORT"))
+print("🚀 Railway ENV PORT:", os.getenv("MYSQL_PORT"))
 
 app = FastAPI()
 
@@ -100,16 +100,7 @@ def test_fetch():
     finally:
         db.close()
 
-@app.on_event("startup")
-async def startup_event():
-    settings = get_settings()
-    print("✅ Environment variables loaded:")
-    print("MYSQL_USER:", settings.MYSQL_USER)
-    print("MYSQL_HOST:", settings.MYSQL_HOST)
-    print("MYSQL_PORT:", settings.MYSQL_PORT)
-    print("MYSQL_DB:", settings.MYSQL_DB)
-
-
-if __name__ == "__main__":
-    # print("REDSHIFT_USER =", settings.REDSHIFT_USER)
-    test_fetch()
+# settings = get_settings()
+# if __name__ == "__main__":
+#     print("MYSQL_USER =", settings.MYSQL_USER)
+#     test_fetch()

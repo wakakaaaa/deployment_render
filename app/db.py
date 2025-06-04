@@ -12,18 +12,19 @@ pymysql.install_as_MySQLdb()
 # engine = create_engine(DATABASE_URL)
 
 
-# mysql_url = (
-#     f"mysql://root:TkRZtpXAQfVrnVvGZASsLQAmxdGKGoZC@centerbeam.proxy.rlwy.net:41908/railway"
-# )
-def get_engine():
-    settings = get_settings()  # 延迟获取
-    mysql_url = (
-        f"mysql+pymysql://{settings.MYSQL_USER}:{settings.MYSQL_PASS}@{settings.MYSQL_HOST}:{settings.MYSQL_PORT}/"
-        f"{settings.MYSQL_DB}"
-    )
-    return create_engine(mysql_url)
+mysql_url = (
+    f"mysql://root:TkRZtpXAQfVrnVvGZASsLQAmxdGKGoZC@centerbeam.proxy.rlwy.net:41908/railway"
+)
 
-engine = get_engine()
+# def get_engine():
+#     settings = get_settings()  # 延迟获取
+#     mysql_url = (
+#         f"mysql+pymysql://{settings.MYSQL_USER}:{settings.MYSQL_PASS}@{settings.MYSQL_HOST}:{settings.MYSQL_PORT}/"
+#         f"{settings.MYSQL_DB}"
+#     )
+#     return create_engine(mysql_url)
+
+engine = create_engine(mysql_url)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 # 依赖注入用
