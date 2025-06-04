@@ -1,20 +1,16 @@
-import os
-from app.config import settings
+
+from app.config import get_settings
 from fastapi import FastAPI, Depends, HTTPException
 from sqlalchemy.orm import Session
 from app.db import get_db
 from app.crud import fetch_data
 from app.schemas import TableResponse, Row
-# from dotenv import load_dotenv
-import os
-
-
-# load_dotenv()
 
 import pandas as pd
+import os
+
 app = FastAPI()
 
-# 示例SQL：你可以根据业务替换
 # DEFAULT_QUERY = '''
 #     select
 # 	to_date(forecastmonth,'YYYY-MM-DD') AS forecastmonth
@@ -103,13 +99,16 @@ def test_fetch():
     finally:
         db.close()
 
-def main():
+@app.on_event("startup")
+async def startup_event():
+    settings = get_settings()
     print("✅ Environment variables loaded:")
     print("MYSQL_USER:", settings.MYSQL_USER)
     print("MYSQL_HOST:", settings.MYSQL_HOST)
     print("MYSQL_PORT:", settings.MYSQL_PORT)
     print("MYSQL_DB:", settings.MYSQL_DB)
+
+
 if __name__ == "__main__":
     # print("REDSHIFT_USER =", settings.REDSHIFT_USER)
-    # test_fetch()
-    main()
+    test_fetch()
