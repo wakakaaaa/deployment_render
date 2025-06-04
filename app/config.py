@@ -15,9 +15,9 @@ class Settings(BaseSettings):
     MYSQL_PORT: int
     MYSQL_DB: str
 
-    class Config:
-        # env_file = ".env"
-        # env_file_encoding = "utf-8"
-        extra = "ignore"
+    # class Config:
+    #     # env_file = ".env"
+    #     # env_file_encoding = "utf-8"
+    #     extra = "ignore"
 
 settings = Settings()
