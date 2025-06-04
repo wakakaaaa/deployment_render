@@ -4,7 +4,6 @@ from app.config import get_settings
 import os
 import pymysql
 pymysql.install_as_MySQLdb()
-settings = get_settings()
 
 # DATABASE_URL = (
 #     f"redshift+redshift_connector://{settings.REDSHIFT_USER}:{settings.REDSHIFT_PASS}@"
@@ -12,14 +11,19 @@ settings = get_settings()
 # )
 # engine = create_engine(DATABASE_URL)
 
-mysql_url = (
-    f"mysql+pymysql://{settings.MYSQL_USER}:{settings.MYSQL_PASS}@{settings.MYSQL_HOST}:{settings.MYSQL_PORT}/"
-    f"{settings.MYSQL_DB}"
-)
+
 # mysql_url = (
 #     f"mysql://root:TkRZtpXAQfVrnVvGZASsLQAmxdGKGoZC@centerbeam.proxy.rlwy.net:41908/railway"
 # )
-engine = create_engine(mysql_url)
+def get_engine():
+    settings = get_settings()  # 延迟获取
+    mysql_url = (
+        f"mysql+pymysql://{settings.MYSQL_USER}:{settings.MYSQL_PASS}@{settings.MYSQL_HOST}:{settings.MYSQL_PORT}/"
+        f"{settings.MYSQL_DB}"
+    )
+    return create_engine(mysql_url)
+
+engine = get_engine()
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 # 依赖注入用
