@@ -1,4 +1,3 @@
-import os
 from pydantic_settings import BaseSettings,SettingsConfigDict
 from dotenv import load_dotenv
 import os
@@ -10,11 +9,11 @@ class Settings(BaseSettings):
     # REDSHIFT_HOST: str
     # REDSHIFT_PORT: int = 5439
     # REDSHIFT_DB: str
-    mysql_user: str = os.getenv("mysql_user")
-    mysql_pass: str = os.getenv("mysql_pass")
-    mysql_host: str = os.getenv("mysql_host")
-    mysql_port: int = 3306
-    mysql_db: str = os.getenv("mysql_db")
+    mysql_user: str
+    mysql_pass: str
+    mysql_host: str
+    mysql_port: int
+    mysql_db: str
 
     class Config:
         env_file = ".env"
