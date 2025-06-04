@@ -10,11 +10,11 @@ class Settings(BaseSettings):
     # REDSHIFT_HOST: str
     # REDSHIFT_PORT: int = 5439
     # REDSHIFT_DB: str
-    mysql_user: str = os.getenv("MYSQL_USER")
-    mysql_pass: str = os.getenv("MYSQL_PASS")
-    mysql_host: str = os.getenv("MYSQL_HOST")
+    mysql_user: str = os.getenv("mysql_user")
+    mysql_pass: str = os.getenv("mysql_pass")
+    mysql_host: str = os.getenv("mysql_host")
     mysql_port: int = 3306
-    mysql_db: str = os.getenv("MYSQL_DB")
+    mysql_db: str = os.getenv("mysql_db")
 
     class Config:
         env_file = ".env"

@@ -11,13 +11,13 @@ pymysql.install_as_MySQLdb()
 # )
 # engine = create_engine(DATABASE_URL)
 
-# mysql_url = (
-#     f"mysql+pymysql://{settings.mysql_user}:{settings.mysql_pass}@{settings.mysql_host}:{settings.mysql_port}/"
-#     f"{settings.mysql_db}"
-# )
 mysql_url = (
-    f"mysql://root:TkRZtpXAQfVrnVvGZASsLQAmxdGKGoZC@centerbeam.proxy.rlwy.net:41908/railway"
+    f"mysql+pymysql://{settings.mysql_user}:{settings.mysql_pass}@{settings.mysql_host}:{settings.mysql_port}/"
+    f"{settings.mysql_db}"
 )
+# mysql_url = (
+#     f"mysql://root:TkRZtpXAQfVrnVvGZASsLQAmxdGKGoZC@centerbeam.proxy.rlwy.net:41908/railway"
+# )
 engine = create_engine(mysql_url)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
