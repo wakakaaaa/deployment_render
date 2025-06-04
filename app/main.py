@@ -1,5 +1,7 @@
 import os
+from app.config import settings
 print("MYSQL_USER from env:", os.getenv("MYSQL_USER"))
+print("MYSQL_USER from settings:", settings.MYSQL_USER)  # 从 Pydantic
 from fastapi import FastAPI, Depends, HTTPException
 from sqlalchemy.orm import Session
 from app.db import get_db
@@ -10,7 +12,7 @@ import os
 
 
 # load_dotenv()
-from app.config import settings
+
 import pandas as pd
 app = FastAPI()
 

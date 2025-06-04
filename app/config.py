@@ -2,7 +2,7 @@ from pydantic_settings import BaseSettings,SettingsConfigDict
 from dotenv import load_dotenv
 import os
 
-load_dotenv()
+# load_dotenv()
 class Settings(BaseSettings):
     # REDSHIFT_USER: str
     # REDSHIFT_PASS: str
@@ -15,9 +15,9 @@ class Settings(BaseSettings):
     MYSQL_PORT: int
     MYSQL_DB: str
 
-    # class Config:
+    class Config:
     #     # env_file = ".env"
     #     # env_file_encoding = "utf-8"
-    #     extra = "ignore"
+        extra = "ignore"
 
 settings = Settings()
