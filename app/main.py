@@ -8,6 +8,7 @@ from app.schemas import TableResponse, Row
 
 import pandas as pd
 import os
+print("🚀 Railway ENV PORT:", os.getenv("PORT"))
 
 app = FastAPI()
 

@@ -22,3 +22,4 @@ class Settings(BaseSettings):
 
 def get_settings() -> Settings:
     return Settings()
+print("❗️Settings class loaded — if you see this printed before startup, it's too early")
